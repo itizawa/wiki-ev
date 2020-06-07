@@ -3235,6 +3235,14 @@ expand-brackets@^2.1.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+express-validator@^6.5.0:
+  version "6.5.0"
+  resolved "https://registry.yarnpkg.com/express-validator/-/express-validator-6.5.0.tgz#0cfb3a94f902b75c597372ac91c7dfb267c5c221"
+  integrity sha512-kXi99TuVeLWkxO0RtDOSj56T7YR0H5KZZyhtzoPSZ5TffBvrJpZPSp/frYcT/zVoLhH8NXDk+T0LCSeI6TbOGA==
+  dependencies:
+    lodash "^4.17.15"
+    validator "^13.0.0"
+
 ext@^1.1.2:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/ext/-/ext-1.4.0.tgz#89ae7a07158f79d35517882904324077e4379244"

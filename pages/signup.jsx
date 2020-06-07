@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Router from "next/router";
-import { useCurrentUser } from "../lib/hooks";
+// import { useCurrentUser } from "../lib/hooks";
+import Axios from "axios";
+import { toastError } from "@utils/toaster";
+
 const SignupPage = () => {
-  const [user, { mutate }] = useCurrentUser();
+  //   const [user, { mutate }] = useCurrentUser();
   const [errorMsg, setErrorMsg] = useState("");
-  useEffect(() => {
-    // redirect to home if user is authenticated
-    if (user) Router.replace("/");
-  }, [user]);
+  //   useEffect(() => {
+  //     // redirect to home if user is authenticated
+  //     if (user) Router.replace("/");
+  //   }, [user]);
 
   // form values
   const [username, setUsername] = useState("");
@@ -16,6 +19,17 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
 
   const SignUpButtonHandler = async () => {
+    try {
+      const res = await Axios.post("/api/users", {
+        username,
+        email,
+        password,
+      });
+      console.log(res);
+    } catch (error) {
+      toastError(error);
+    }
+
     // e.preventDefault();
     // const body = {
     //   email: e.currentTarget.email.value,

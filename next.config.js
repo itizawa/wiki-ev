@@ -5,6 +5,10 @@ const path = require("path");
 module.exports = {
   webpack(config, options) {
     config.resolve.alias["@components"] = path.join(__dirname, "components");
+    config.resolve.alias["@middlewares"] = path.join(
+      __dirname,
+      "lib/middlewares"
+    );
     config.resolve.alias["@widgets"] = path.join(
       __dirname,
       "components/widgets"
