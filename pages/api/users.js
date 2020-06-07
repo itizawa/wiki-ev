@@ -12,6 +12,8 @@ const handler = nextConnect();
 
 dbConnect();
 
+handler.use(RetrieveAccessToken);
+
 validator.signUpUser = [
   body("username").isString().isLength({ min: 4, max: 20 }),
   body("email").isEmail(),
@@ -38,7 +40,7 @@ handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
   return res.status(201).json({ createdUser });
 });
 
-handler.put(RetrieveAccessToken, async (req, res) => {
+handler.put(async (req, res) => {
   try {
     console.log(req.accessToken);
   } catch (error) {
