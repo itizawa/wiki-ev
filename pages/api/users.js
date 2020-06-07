@@ -18,7 +18,7 @@ handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
   const { name, password } = req.body;
   const email = normalizeEmail(req.body.email);
   const hashedPassword = await bcrypt.hash(password, 10);
-  return res.status(200);
+  return res.status(200).json({});
   // const user = await req.db
   //   .collection("users")
   //   .insertOne({
