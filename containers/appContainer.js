@@ -3,31 +3,21 @@ import Axios from "axios";
 
 function appContainer() {
   // API
-  async function apiRequest(method, path, params) {
-    const res = await Axios[method](`/api${path}`, params);
+  const apiGet = (route, params) => {
+    return Axios.get(`api${route}`, { params });
+  };
 
-    if (res.data.ok) {
-      return res.data;
-    }
+  const apiPost = (route, body) => {
+    return Axios.post(`api${route}`, body);
+  };
 
-    throw new Error(res.data.error);
-  }
+  const apiPut = (route, body) => {
+    return Axios.put(`api${route}`, body);
+  };
 
-  async function apiGet(path, params) {
-    return apiRequest("get", path, { params });
-  }
-
-  async function apiPost(path, params) {
-    return apiRequest("post", path, params);
-  }
-
-  async function apiPut(path, params) {
-    return apiRequest("put", path, params);
-  }
-
-  async function apiDelete(path, params) {
-    return apiRequest("delete", path, { data: params });
-  }
+  const apiDelete = (route) => {
+    return Axios.delete(`api${route}`);
+  };
 
   return { apiGet, apiPost, apiPut, apiDelete };
 }
