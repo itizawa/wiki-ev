@@ -3,10 +3,10 @@ import normalizeEmail from "validator/lib/normalizeEmail";
 import bcrypt from "bcryptjs";
 import validator from "validator";
 import ApiValidator from "@middlewares/ApiValidator";
+import RetrieveAccessToken from "@middlewares/RetrieveAccessToken";
 import { body } from "express-validator";
 import dbConnect from "@lib/middlewares/dbConnect";
 import User from "@models/User";
-import { session } from "next-auth/client";
 
 const handler = nextConnect();
 
@@ -38,11 +38,9 @@ handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
   return res.status(201).json({ createdUser });
 });
 
-handler.put(async (req, res) => {
+handler.put(RetrieveAccessToken, async (req, res) => {
   try {
-    console.log("hoge");
-    const sessionData = await session({ req });
-    console.log(sessionData);
+    console.log(req.accessToken);
   } catch (error) {
     return res.status(500).json(error);
   }
