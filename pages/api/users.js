@@ -36,12 +36,16 @@ handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
   }
 
   return res.status(201).json({ createdUser });
-  // req.logIn(user, (err) => {
-  //   if (err) throw err;
-  //   res.status(201).json({
-  //     user: extractUser(req),
-  //   });
-  // });
+});
+
+handler.put(async (req, res) => {
+  try {
+    console.log("hoge");
+    const sessionData = await session({ req });
+    console.log(sessionData);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
 });
 
 export default handler;

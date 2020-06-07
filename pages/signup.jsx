@@ -6,14 +6,7 @@ import { toastError } from "@utils/toaster";
 import appContainer from "@containers/appContainer";
 
 const SignupPage = () => {
-  const { apiPost } = appContainer.useContainer();
-
-  //   const [user, { mutate }] = useCurrentUser();
-  const [errorMsg, setErrorMsg] = useState("");
-  //   useEffect(() => {
-  //     // redirect to home if user is authenticated
-  //     if (user) Router.replace("/");
-  //   }, [user]);
+  const { apiPost, apiPut } = appContainer.useContainer();
 
   // form values
   const [username, setUsername] = useState("");
@@ -21,6 +14,8 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
 
   const SignUpButtonHandler = async () => {
+    const res = await apiPut("/users");
+    return;
     try {
       const res = await apiPost("/users", {
         username,
@@ -86,11 +81,7 @@ const SignupPage = () => {
           />
         </div>
 
-        <button
-          className="btn btn-lg btn-info btn-block"
-          type="button"
-          onClick={SignUpButtonHandler}
-        >
+        <button className="btn btn-lg btn-info btn-block" type="button" onClick={SignUpButtonHandler}>
           Sign up
         </button>
       </form>
