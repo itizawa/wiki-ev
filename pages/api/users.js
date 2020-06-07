@@ -12,7 +12,7 @@ const handler = nextConnect();
 dbConnect();
 
 validator.signUpUser = [
-  body("username").isString().isLength({ min: 4, max: 10 }),
+  body("username").isString().isLength({ min: 4, max: 20 }),
   body("email").isEmail(),
   body("password").isString().isLength({ min: 6 }),
 ];
