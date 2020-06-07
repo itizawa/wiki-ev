@@ -1,7 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import { useSession } from "next-auth/client";
 
 export default ({ children }) => {
+  const [session, loading] = useSession();
+
   return (
     <>
       <header>
@@ -11,12 +14,16 @@ export default ({ children }) => {
               <a className="navbar-brand">Navbar</a>
             </Link>
             <div>
-              <Link href="/login">
-                <a className="text-white">Sign in</a>
-              </Link>
-              <Link href="/signup">
-                <a className="text-white">Sign up</a>
-              </Link>
+              {!session && (
+                <Link href="/api/auth/signin">
+                  <a className="text-white">Sign in</a>
+                </Link>
+              )}
+              {session && (
+                <Link href="/api/auth/signout">
+                  <a className="text-white">Sign out</a>
+                </Link>
+              )}
             </div>
           </div>
         </nav>
