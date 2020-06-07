@@ -1,0 +1,38 @@
+{
+  "name": "with-firebase",
+  "version": "0.1.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "migrate": "npm run migrate:up",
+    "migrate:create": "migrate-mongo create -f config/migrate.js -- ",
+    "migrate:status": "migrate-mongo status -f config/migrate.js",
+    "migrate:up": "migrate-mongo up -f config/migrate.js",
+    "migrate:down": "migrate-mongo down -f config/migrate.js"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "firebase": "7.11.0",
+    "marked": "^0.8.2",
+    "migrate-mongo": "^7.2.0",
+    "mongoose": "^5.9.10",
+    "next": "latest",
+    "node-sass": "^4.13.1",
+    "now": "^17.0.4",
+    "path": "^0.12.7",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "reactstrap": "^8.4.1",
+    "toastr": "^2.1.4",
+    "unstated-next": "^1.1.0",
+    "url-join": "^4.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "8.2.0"
+  },
+  "licence": "MIT"
+}
