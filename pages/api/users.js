@@ -2,19 +2,20 @@ import nextConnect from "next-connect";
 import normalizeEmail from "validator/lib/normalizeEmail";
 import bcrypt from "bcryptjs";
 import validator from "validator";
-// import middleware from "../../middlewares/middleware";
+import middleware from "@middlewares/middleware";
 import ApiValidator from "@middlewares/ApiValidator";
 import { body } from "express-validator";
 
 const handler = nextConnect();
+handler.use(middleware);
 
-// handler.use(middleware);
 validator.signUpUser = [
   body("username").isString().isLength({ min: 4, max: 10 }),
   body("email").isEmail(),
+  body("password").isString().isLength({ min: 6 }),
 ];
 
-handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
+handler.post(middleware, validator.signUpUser, ApiValidator, async (req, res) => {
   const { name, password } = req.body;
   const email = normalizeEmail(req.body.email);
   const hashedPassword = await bcrypt.hash(password, 10);

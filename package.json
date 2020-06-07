@@ -21,8 +21,8 @@
     "firebase": "7.11.0",
     "marked": "^0.8.2",
     "migrate-mongo": "^7.2.0",
-    "mongoose": "^5.9.10",
-    "next": "latest",
+    "mongoose": "^5.9.18",
+    "next": "^9.4.4",
     "next-connect": "^0.7.0",
     "node-sass": "^4.13.1",
     "now": "^17.0.4",
@@ -39,7 +39,7 @@
     "validator": "^13.0.0"
   },
   "devDependencies": {
-    "dotenv": "8.2.0"
+    "dotenv": "^8.2.0"
   },
   "licence": "MIT"
 }
