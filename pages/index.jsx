@@ -9,6 +9,7 @@ export default () => {
 
       <main>
         <p>index</p>
+        <a href="/api/auth/signin">Sign in</a>
       </main>
     </div>
   );
