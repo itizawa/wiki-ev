@@ -1,13 +1,16 @@
-// import global css
 import "../style/global.scss";
 
-// Custom App to wrap it with context provider
-export default (pageProps) => {
+import React from "react";
+import Head from "next/head";
+import Layout from "../components/layout";
+
+export default function MyApp({ Component, pageProps }) {
   return (
-    <div className="row no-gutters justify-content-end">
-      <div className="col-12 col-md-9 col-xl-10">
-        <pageProps.Component {...pageProps} />
-      </div>
-    </div>
+    <Layout>
+      <Head>
+        <title>Next.js + MongoDB App</title>
+      </Head>
+      <Component {...pageProps} />
+    </Layout>
   );
-};
+}
