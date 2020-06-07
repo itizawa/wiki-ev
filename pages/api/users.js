@@ -34,7 +34,7 @@ handler.post(validator.signUpUser, ApiValidator, async (req, res) => {
     return res.status(500).json(error);
   }
 
-  return res.status(200).json({ createdUser });
+  return res.status(201).json({ createdUser });
   // req.logIn(user, (err) => {
   //   if (err) throw err;
   //   res.status(201).json({
