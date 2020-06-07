@@ -6,6 +6,7 @@ import ApiValidator from "@middlewares/ApiValidator";
 import { body } from "express-validator";
 import dbConnect from "@lib/middlewares/dbConnect";
 import User from "@models/User";
+import { session } from "next-auth/client";
 
 const handler = nextConnect();
 
