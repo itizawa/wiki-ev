@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Router from "next/router";
 // import { useCurrentUser } from "../lib/hooks";
-import Axios from "axios";
 import { toastError } from "@utils/toaster";
+import appContainer from "@containers/appContainer";
 
 const SignupPage = () => {
+  const { apiPost } = appContainer.useContainer();
+
   //   const [user, { mutate }] = useCurrentUser();
   const [errorMsg, setErrorMsg] = useState("");
   //   useEffect(() => {
@@ -20,7 +22,7 @@ const SignupPage = () => {
 
   const SignUpButtonHandler = async () => {
     try {
-      const res = await Axios.post("/api/users", {
+      const res = await apiPost("/users", {
         username,
         email,
         password,
@@ -30,17 +32,6 @@ const SignupPage = () => {
       toastError(error);
     }
 
-    // e.preventDefault();
-    // const body = {
-    //   email: e.currentTarget.email.value,
-    //   name: e.currentTarget.name.value,
-    //   password: e.currentTarget.password.value,
-    // };
-    // const res = await fetch("/api/users", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(body),
-    // });
     // if (res.status === 201) {
     //   const userObj = await res.json();
     //   mutate(userObj);
