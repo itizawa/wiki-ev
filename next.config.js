@@ -9,7 +9,7 @@ module.exports = {
       __dirname,
       "components/widgets"
     );
-    config.resolve.alias["@containers"] = path.join(__dirname, "containers");
+    config.resolve.alias["@atoms"] = path.join(__dirname, "atoms");
     config.resolve.alias["@utils"] = path.join(__dirname, "lib/utils");
     config.resolve.alias["@lib"] = path.join(__dirname, "lib");
     config.resolve.alias["@context"] = path.join(__dirname, "context");
