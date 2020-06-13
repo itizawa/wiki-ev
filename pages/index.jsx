@@ -3,14 +3,9 @@ import Head from "next/head";
 export default () => {
   return (
     <div>
-      <Head>
-        <title>カンバン</title>
-      </Head>
+      <Head></Head>
 
-      <main>
-        <p>index</p>
-        <a href="/api/auth/signin">Sign in</a>
-      </main>
+      <main></main>
     </div>
   );
 };
