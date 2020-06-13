@@ -36,6 +36,10 @@ const options = {
   sessionMaxAge: 30 * 24 * 60 * 60 * 1000, // Expire sessions after 30 days of being idle
   sessionUpdateAge: 24 * 60 * 60 * 1000, // Update session expiry only if session was updated more recently than the last 24 hours
   // debug: true, // Use this option to enable debug messages in the console
+  pages: {
+    error: "/auth/error", // Error code passed in query string as ?error=
+    newUser: "/me", // If set, new users will be directed here on first sign in
+  },
 };
 
 export default (req, res) => NextAuth(req, res, options);
