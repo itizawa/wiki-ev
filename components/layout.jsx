@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import { useSession } from "next-auth/client";
+import PersonalDropdown from "@components/molecules/PersonalDropdown";
 
 export default ({ children }) => {
   const [session, loading] = useSession();
@@ -19,11 +20,7 @@ export default ({ children }) => {
                   <a className="text-white">Sign in</a>
                 </Link>
               )}
-              {session && (
-                <Link href="/api/auth/signout">
-                  <a className="text-white">Sign out</a>
-                </Link>
-              )}
+              {session && <PersonalDropdown />}
             </div>
           </div>
         </nav>
