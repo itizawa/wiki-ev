@@ -9,7 +9,7 @@ function PersonalDropdown() {
   return (
     <UncontrolledDropdown>
       <DropdownToggle caret color="info">
-        <img height="24px" className="rounded-circle bg-white" src={user.image} />
+        <img height="24px" className="rounded-circle bg-white mr-2" src={user.image} />
         {user.name}
       </DropdownToggle>
       <DropdownMenu>
