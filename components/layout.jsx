@@ -14,14 +14,16 @@ export default ({ children }) => {
             <Link href="/">
               <a className="navbar-brand">Wiki EV</a>
             </Link>
-            <div>
-              {!session && (
-                <Link href="/api/auth/signin">
-                  <a className="text-white">Sign in</a>
-                </Link>
-              )}
-              {session && <PersonalDropdown />}
-            </div>
+            {!loading && (
+              <div>
+                {!session && (
+                  <Link href="/api/auth/signin">
+                    <a className="text-white">Sign in</a>
+                  </Link>
+                )}
+                {session && <PersonalDropdown />}
+              </div>
+            )}
           </div>
         </nav>
       </header>
