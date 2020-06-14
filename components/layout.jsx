@@ -9,22 +9,20 @@ export default ({ children }) => {
   return (
     <>
       <header>
-        <nav className="navbar navbar-dark bg-indigo">
-          <div className="container">
-            <Link href="/">
-              <a className="navbar-brand">Wiki EV</a>
-            </Link>
-            {!loading && (
-              <div>
-                {!session && (
-                  <Link href="/api/auth/signin">
-                    <a className="text-white">Sign in</a>
-                  </Link>
-                )}
-                {session && <PersonalDropdown />}
-              </div>
-            )}
-          </div>
+        <nav className="navbar navbar-dark bg-dark">
+          <Link href="/">
+            <a className="navbar-brand">Wiki EV</a>
+          </Link>
+          {!loading && (
+            <div>
+              {!session && (
+                <Link href="/api/auth/signin">
+                  <a className="text-white">Sign in</a>
+                </Link>
+              )}
+              {session && <PersonalDropdown />}
+            </div>
+          )}
         </nav>
       </header>
 
