@@ -13,10 +13,19 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       required: true,
     },
-    password: {
+    image: {
       type: String,
       required: true,
       trim: true,
+    },
+    accessToken: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      required: true,
     },
   },
   { timestamps: true }

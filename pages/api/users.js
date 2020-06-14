@@ -1,6 +1,5 @@
 import nextConnect from "next-connect";
 import normalizeEmail from "validator/lib/normalizeEmail";
-import bcrypt from "bcryptjs";
 import validator from "validator";
 import ApiValidator from "@middlewares/ApiValidator";
 import RetrieveAccessToken from "@middlewares/RetrieveAccessToken";
