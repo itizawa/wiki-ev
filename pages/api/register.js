@@ -13,15 +13,12 @@ handler.use(RetrieveAccessToken);
 handler.get(async (req, res) => {
   const sessionData = await session({ req });
   try {
-    userCount = await User.countDocuments();
-    const isAdmin = userCount == null;
-
     const user = new User({
       username: sessionData.user.name,
       email: sessionData.user.email,
       image: sessionData.user.image,
       accessToken: sessionData.accessToken,
-      isAdmin,
+      isAdmin: false,
     });
 
     const createdUser = await user.save();

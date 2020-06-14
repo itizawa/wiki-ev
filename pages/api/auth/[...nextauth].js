@@ -38,7 +38,7 @@ const options = {
   // debug: true, // Use this option to enable debug messages in the console
   pages: {
     error: "/auth/error", // Error code passed in query string as ?error=
-    newUser: "/api/register", // If set, new users will be directed here on first sign in
+    newUser: "/me", // If set, new users will be directed here on first sign in
   },
 };
 
