@@ -5,26 +5,25 @@ import { useSession } from "next-auth/client";
 function PersonalDropdown() {
   const [session, loading] = useSession();
   const { user } = session;
-  console.log(user);
 
   return (
     <UncontrolledDropdown>
       <DropdownToggle caret color="info">
-        <img height="24px" class="rounded-circle bg-white" src={user.image} />
+        <img height="24px" className="rounded-circle bg-white" src={user.image} />
         {user.name}
       </DropdownToggle>
       <DropdownMenu>
-        <DropdownItem>
-          <Link href="/me">
+        <Link href="/me">
+          <DropdownItem>
             <a className="text-dark text-decoration-none">My page</a>
-          </Link>
-        </DropdownItem>
+          </DropdownItem>
+        </Link>
         <DropdownItem divider />
-        <DropdownItem>
-          <Link href="/api/auth/signout">
+        <Link href="/api/auth/signout">
+          <DropdownItem>
             <a className="text-dark text-decoration-none">Sign out</a>
-          </Link>
-        </DropdownItem>
+          </DropdownItem>
+        </Link>
       </DropdownMenu>
     </UncontrolledDropdown>
   );
