@@ -12,7 +12,7 @@ export default ({ children }) => {
         <nav className="navbar navbar-dark bg-indigo">
           <div className="container">
             <Link href="/">
-              <a className="navbar-brand">Navbar</a>
+              <a className="navbar-brand">Wiki EV</a>
             </Link>
             <div>
               {!session && (
