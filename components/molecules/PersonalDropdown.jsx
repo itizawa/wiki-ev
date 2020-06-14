@@ -3,7 +3,7 @@ import { UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem } from
 import { useSession } from "next-auth/client";
 
 function PersonalDropdown() {
-  const [session, loading] = useSession();
+  const [session] = useSession();
   const { user } = session;
 
   return (
